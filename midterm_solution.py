@@ -38,23 +38,32 @@ expenses = []
 total_spent = 0
 
 for entry in range(4):
-    print(f"\nExpense Entry {entry + 1}")
-    cat_no = int(input("Enter category number (1-5) or 0 to skip: "))
+    print(f"\n--- Expense Entry {entry + 1} ---")
+    print()
+    category_number = int(input("Enter category number (1-5) or 0 to skip: "))
 
-    if cat_no == 0:
+    if category_number == 0:
         continue
 
-    if 1 <= cat_no <= 5:
+    if 1 <= category_number <= 5:
         description = input("Item description: ").strip()
         amount = float(input("Amount spent: "))
 
-        cat_name = categories[cat_no - 1][0]
+        category_name = categories[category_number - 1][0]
 
         tag = ""
         if amount > (budget * 0.25):
             tag = "! High Expense Alert!"
 
-        expenses.append([cat_name, description, amount, tag])
+        expenses.append([category_name, description, amount, tag])
         total_spent += amount
     else:
         print("Invalid category. Slot skipped.")
+
+remaining = budget - total_spent
+if remaining >= 0:
+    status = "Budget OK! Keep it up."
+else:
+    status = "Overspent! Reduce spending."
+    
+

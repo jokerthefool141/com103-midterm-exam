@@ -65,5 +65,28 @@ if remaining >= 0:
     status = "Budget OK! Keep it up."
 else:
     status = "Overspent! Reduce spending."
-    
 
+print("\n" + "=" * 55)
+print(f"{'WEEKLY EXPENSE REPORT':^55}")
+print("=" * 55)
+print(f"Student Name : {student}")
+print(f"Weekly Budget: P{budget:.2f}")
+print("-" * 55)
+
+if len(expenses) == 0:
+    print("No expenses logged.")
+else:
+    print(f"{'No':<3} {'Category':<18} {'Description':<18} {'Amount':>8}")
+    print("-" * 55)
+    count = 1
+    for category_name, description, amount, tag in expenses:
+        print(f"{count:<3} {category_name:<18} {description:<18} P{amount:>7.2f}")
+        if tag != "":
+            print(f"    {tag}")
+        count += 1
+    print("-" * 55)
+
+print(f"{'Total Spent:':<20} P{total_spent:>32.2f}")
+print(f"{'Remaining:':<20} P{remaining:>32.2f}")
+print(f"Status: {status}")
+print("=" * 55)

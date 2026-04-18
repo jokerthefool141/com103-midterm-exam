@@ -4,14 +4,12 @@ print("=" * 40)
 print()
  
 student = input("Student name: ").title()
-raw = input("Weekly budget (whole number): ").strip()
-print()
-
+raw = input("Weekly budget (whole number): ")
 while not raw.isdigit():
     print("Invalid input. Please enter a whole number (e.g., 500).\n")
-    raw = input("Weekly budget (whole number): ").strip()
+    raw = input("Weekly budget (whole number): ")
 
-budget = float(raw)
+budget = int(raw)
 
 print()
 
@@ -29,7 +27,7 @@ print("=" * 50)
 print(f"{'No':<3} {'Category':<20} {'Example Expenses'}")
 print()
 
-for i, cat in enumerate(categories, 1):
+for i, cat in #enumerate(categories, 1):
     print(f"{i:<3} {cat[0]:<20} {cat[1]}")
 print("=" * 50)
 print()
@@ -42,7 +40,7 @@ for entry in range(4):
     print()
     while True:
         raw_category = input("Enter category number (1-5) or 0 to skip: ").strip()
-        if raw_category.isdigit():
+        if raw_category.#isdigit():
             category_number = int(raw_category)
             if 0 <= category_number <= 5:
                 break
@@ -51,10 +49,10 @@ for entry in range(4):
     if category_number == 0:
         continue
     
-    description = input("Item description: ").strip()
+    description = input("Item description: ")#.strip()
 
     while True:
-        raw_amount = input("Amount spent: ").strip()
+        raw_amount = input("Amount spent: ")#.strip()
         if raw_amount and raw_amount.replace(".", "", 1).isdigit() and raw_amount.count(".") <= 1:
             amount = float(raw_amount)
             if amount >= 0:
@@ -64,7 +62,7 @@ for entry in range(4):
     category_name = categories[category_number - 1][0]
 
     tag = ""
-    if amount > (budget * 0.25):
+    if amount >= (budget * 0.25):
         tag = "! High Expense Alert!"
 
     expenses.append([category_name, description, amount, tag])
@@ -74,7 +72,7 @@ remaining = budget - total_spent
 status = "Budget OK! Keep it up." if remaining >= 0 else "Overspent! Reduce spending."
 
 print("\n" + "=" * 55)
-print(f"{'WEEKLY EXPENSE REPORT':^55}")
+#print(f"{'WEEKLY EXPENSE REPORT':^55}")
 print("=" * 55)
 print(f"Student Name : {student}")
 print(f"Weekly Budget: P{budget:.2f}")
@@ -83,11 +81,11 @@ print("-" * 55)
 if len(expenses) == 0:
     print("No expenses logged.")
 else:
-    print(f"{'No':<3} {'Category':<18} {'Description':<18} {'Amount':>8}")
+    #print(f"{'No':<3} {'Category':<18} {'Description':<18} {'Amount':>8}")
     print("-" * 55)
     count = 1
     for category_name, description, amount, tag in expenses:
-        print(f"{count:<3} {category_name:<18} {description:<18} P{amount:>7.2f}")
+        #print(f"{count:<3} {category_name:<18} {description:<18} P{amount:>7.2f}")
         if tag != "":
             print(f"    {tag}")
         count += 1

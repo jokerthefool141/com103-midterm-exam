@@ -40,31 +40,38 @@ total_spent = 0
 for entry in range(4):
     print(f"\n--- Expense Entry {entry + 1} ---")
     print()
-    category_number = int(input("Enter category number (1-5) or 0 to skip: "))
-
+    while True:
+        raw_category = input("Enter category number (1-5) or 0 to skip: ").strip()
+        if raw_category.isdigit():
+            category_number = int(raw_category)
+            if 0 <= category_number <= 5:
+                break
+        print("Invalid input. Please enter a number from 0 to 5.\n")
+        
     if category_number == 0:
         continue
+    
+    description = input("Item description: ").strip()
 
-    if 1 <= category_number <= 5:
-        description = input("Item description: ").strip()
-        amount = float(input("Amount spent: "))
+    while True:
+        raw_amount = input("Amount spent: ").strip()
+        if raw_amount and raw_amount.replace(".", "", 1).isdigit() and raw_amount.count(".") <= 1:
+            amount = float(raw_amount)
+            if amount >= 0:
+                break
+        print("Invalid input. Please enter a valid amount (e.g., 75 or 75.50).\n")
 
-        category_name = categories[category_number - 1][0]
+    category_name = categories[category_number - 1][0]
 
-        tag = ""
-        if amount > (budget * 0.25):
-            tag = "! High Expense Alert!"
+    tag = ""
+    if amount > (budget * 0.25):
+        tag = "! High Expense Alert!"
 
-        expenses.append([category_name, description, amount, tag])
-        total_spent += amount
-    else:
-        print("Invalid category. Slot skipped.")
+    expenses.append([category_name, description, amount, tag])
+    total_spent += amount
 
 remaining = budget - total_spent
-if remaining >= 0:
-    status = "Budget OK! Keep it up."
-else:
-    status = "Overspent! Reduce spending."
+status = "Budget OK! Keep it up." if remaining >= 0 else "Overspent! Reduce spending."
 
 print("\n" + "=" * 55)
 print(f"{'WEEKLY EXPENSE REPORT':^55}")

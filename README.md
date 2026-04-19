@@ -23,5 +23,6 @@ midterm_solution.py — main program file
 5. Follow the instructions on the screen.
 
 ## Author
-Jaypee James J. Isip 
+Jaypee James J. Isip
+
 BSIT - SE1A

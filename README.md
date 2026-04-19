@@ -15,4 +15,8 @@ README.md — project documentation
 2. Save the file as `midterm_solution.py`.
 3. Open a terminal or command prompt.
 4. Run the program using: python midterm_solution.py
+<<<<<<< HEAD
 5. Follow the instructions on the screen.
+=======
+5. Follow the instructions on the screen.
+>>>>>>> a89481a8ea1005adefb16dec5f7ea81a7b190934

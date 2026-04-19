@@ -10,8 +10,8 @@ At the end, the program shows total spending, remaining budget, and budget statu
 
 ## Files
 
-midterm_solution.py — main program file
 README.md — project documentation
+midterm_solution.py — main program file
 
 ## How to Run
 

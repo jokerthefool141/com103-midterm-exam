@@ -11,6 +11,7 @@ At the end, the program shows total spending, remaining budget, and budget statu
 ## Files
 
 README.md — project documentation
+
 midterm_solution.py — main program file
 
 ## How to Run
